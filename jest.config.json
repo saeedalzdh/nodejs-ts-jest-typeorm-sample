@@ -1,0 +1,7 @@
+{
+  "testEnvironment": "node",
+  "collectCoverage": false,
+  "modulePathIgnorePatterns": ["dist"],
+  "preset": "ts-jest",
+  "clearMocks": true
+}
