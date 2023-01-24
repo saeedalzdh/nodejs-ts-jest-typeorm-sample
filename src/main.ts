@@ -1,15 +1,10 @@
-import express, { Express } from 'express';
+import { config } from './config';
+import { createHttpServer } from './server';
 
-export const createHttpServer = (): Express => {
-  const app = express();
-  
-  app.get('/ping', (_req, res) => {
-    res.status(200).send('pong');
-  });
+async function main(): Promise<void> {
+  createHttpServer().listen(config.app.port, () =>
+    console.log(`Listening on :${config.app.port}`),
+  );
+}
 
-  return app;
-};
-
-createHttpServer().listen(3000, () => {
-  console.log("Server is listening on port 3000");
-});
+main().then().catch(console.error);
