@@ -12,6 +12,18 @@
 $ yarn
 ```
 
+### Setup database
+
+```shell
+$ docker compose up
+```
+
+and run the migration
+
+```shell
+$ yarn migrate
+```
+
 ### Run tests
 
 ```shell
