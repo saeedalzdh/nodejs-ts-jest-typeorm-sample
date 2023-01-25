@@ -1,19 +1,5 @@
 import tsEnv from '@lpgera/ts-env';
-
-type Config = {
-  env: string;
-  app: {
-    name: string;
-    port: number;
-  };
-  db: {
-    user: string;
-    pass: string;
-    name: string;
-    port: number;
-    host: string;
-  };
-};
+import type { Config } from './types';
 
 export const config: Config = {
   env: tsEnv.string('NODE_ENV') || 'production',
