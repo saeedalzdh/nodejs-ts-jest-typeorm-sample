@@ -1,3 +1,4 @@
+// Types
 export type Config = {
   env: string;
   app: {
@@ -11,4 +12,30 @@ export type Config = {
     port: number;
     host: string;
   };
+  registration: {
+    clientId: string;
+    clientName: string;
+    clientEmail: string;
+  };
 };
+
+export type Post = {
+  from_name: string;
+  from_id: string;
+  message: string;
+  type: string;
+  created_time: string;
+};
+
+// Services
+export interface ISocialMediaService {
+  register(clientId: string, email: string, name: string): Promise<string>;
+  retrievePostsByPage(slToken: string, page: number): Promise<Post[]>;
+  retrieveAllPosts(slToken: string): Promise<Post[]>;
+}
+
+// Repositories
+export interface PostRepository {
+  getPostsCount(): Promise<number>;
+  addPosts(posts: Post[]): Promise<void>;
+}

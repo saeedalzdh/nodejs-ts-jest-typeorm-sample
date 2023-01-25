@@ -39,17 +39,19 @@
     "prettier": "prettier --config .prettierrc --write .",
     "test:watch": "jest --watch",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migrate": "yarn typeorm migration:run -d src/infra/core/typeorm/index.ts"
+    "migrate": "yarn typeorm migration:run -d src/dao/index.ts"
   },
   "author": "Saeed Alizadeh <hellosaeedalizadeh@gmail.com>",
   "license": "UNLICENSED",
   "dependencies": {
     "@lpgera/ts-env": "^1.2.1",
+    "axios": "^1.2.4",
     "body-parser": "^1.20.1",
+    "crypto": "^1.0.1",
     "express": "^4.18.2",
     "joi": "^17.6.4",
     "pg": "^8.8.0",
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.3.10"
+    "typeorm": "^0.3.11"
   }
 }

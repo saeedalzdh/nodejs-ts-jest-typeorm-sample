@@ -6,6 +6,6 @@ services:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=social-analytics
+      - POSTGRES_DB=social_insights
     ports:
       - '5432:5432'

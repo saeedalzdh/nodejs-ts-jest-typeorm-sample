@@ -1,6 +1,7 @@
 import { join } from 'path';
 import { DataSource } from 'typeorm';
 import { config } from '../config';
+import { PostEntity } from './entities/posts-entity';
 
 export const db = new DataSource({
   type: 'postgres',
@@ -11,7 +12,7 @@ export const db = new DataSource({
   database: config.db.name,
   synchronize: config.env === 'test',
   logging: false,
-  entities: [],
+  entities: [PostEntity],
   subscribers: [],
   migrations: [join(__dirname, 'migrations/**')],
 });
