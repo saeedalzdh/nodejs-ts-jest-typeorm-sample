@@ -1,11 +1,10 @@
 import express, { Express } from 'express';
+import { router } from './handlers';
 
 export const createHttpServer = (): Express => {
   const app = express();
 
-  app.get('/ping', (_req, res) => {
-    res.status(200).send('pong');
-  });
+  app.use(router());
 
   return app;
 };
