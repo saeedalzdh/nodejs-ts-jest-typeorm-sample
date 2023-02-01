@@ -20,4 +20,15 @@ export const postRepositoryImp: PostRepository = {
 
     await db.manager.save(postEntities);
   },
+
+  getPostByPage: async (page: number) => {
+    const PAGE_LIMIT = 100;
+
+    const posts = await db.manager.find(PostEntity, {
+      take: PAGE_LIMIT,
+      skip: (page - 1) * PAGE_LIMIT,
+    });
+
+    return posts;
+  },
 };

@@ -38,4 +38,5 @@ export interface ISocialMediaService {
 export interface PostRepository {
   getPostsCount(): Promise<number>;
   addPosts(posts: Post[]): Promise<void>;
+  getPostByPage(page: number): Promise<Post[]>;
 }
