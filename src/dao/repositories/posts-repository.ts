@@ -31,4 +31,8 @@ export const postRepositoryImp: PostRepository = {
 
     return posts;
   },
+
+  getAllPosts: async () => {
+    return await db.manager.find(PostEntity);
+  },
 };

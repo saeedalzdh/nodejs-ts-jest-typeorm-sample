@@ -39,4 +39,21 @@ export interface PostRepository {
   getPostsCount(): Promise<number>;
   addPosts(posts: Post[]): Promise<void>;
   getPostByPage(page: number): Promise<Post[]>;
+  getAllPosts(): Promise<Post[]>;
+}
+
+// Domains
+export type PostInsights = {
+  postCount: number;
+  medianCharPerPost: number;
+  postCountByMonth: { [month: string]: number };
+  longestPost: string;
+};
+
+export type PostInsightsByUser = {
+  [userId: string]: Insights;
+};
+
+export interface IGetPostInsightsByUser {
+  (posts: Post[]): PostInsightsByUser;
 }
