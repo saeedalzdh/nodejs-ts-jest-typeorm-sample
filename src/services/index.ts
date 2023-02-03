@@ -41,13 +41,13 @@ export const socialMediaService: ISocialMediaService = {
     try {
       let allPosts: Post[] = [];
 
-      for (let page = 1; page <= 10; page++) {
-        const posts = await socialMediaService.retrievePostsByPage(
-          slToken,
-          page,
-        );
-        allPosts = allPosts.concat(posts);
-      }
+      const pages = Array.from({ length: 10 }, (_v, k) => k + 1);
+      const promises = pages.map((page) =>
+        socialMediaService.retrievePostsByPage(slToken, page),
+      );
+
+      const posts = await Promise.all(promises);
+      allPosts = allPosts.concat(...posts);
 
       return allPosts;
     } catch (error) {
